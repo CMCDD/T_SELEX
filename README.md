@@ -67,7 +67,7 @@ Employ the fold_and_composition() function to accurately predict the Minimum Fre
 ```python
 import pandas as pd
 import T_SELEX_program
-from T_SELEX_program import gen_aptamers,fold_and_composition,tertiary_structure,Mol_docking_calc,
+from T_SELEX_program import gen_aptamers,fold_and_composition,tertiary_structure,Mol_docking_calc
 # This will generate 100 RNA sequnces with the random lengths ranging from 16  to 60
 RNA = gen_aptamers(seed =1, length="randomize", aptamers_num =100)
 print(RNA)
@@ -81,19 +81,33 @@ Utilize the tertiary_structure() function to forecast the 3D structures of the s
 ```python
 import pandas as pd
 import T_SELEX_program
-from T_SELEX_program import gen_aptamers,fold_and_composition,tertiary_structure,Mol_docking_calc,
+from T_SELEX_program import gen_aptamers,fold_and_composition,tertiary_structure,Mol_docking_calc
+
 # This will generate 100 RNA sequnces with the random lengths ranging from 16  to 60
 RNA = gen_aptamers(seed =1, length="randomize", aptamers_num =100)
 print(RNA)
+
 df = fold_and_composition(RNA)
+
 #Generating tertiary strucures
 tertiary structures = tertiary_structure(df["Aptamer"],df["MFE structure"] )
 
 ```
 
-#### Step 4: RNA-RNA Interactions Prediction
+#### Step 4: RNA-RNA Interactions Prediction(This is optinal steps when you have the RNA molecule as the target molecules.)
 
-Harness the predictive capability of the intarna() function available in the interactions.py script. This function predicts the interactions between RNA molecules, providing insights into potential binding partners and complex formation.
+In oerder to predict RNA-RNA interactions at large scale using sequences of the intarna() function is available. This function predicts the interactions between RNA molecules, providing insights into potential binding partners and complex formation.
+```python
+import pandas as pd
+import T_SELEX_program
+from T_SELEX_program import intarna
+
+target_seq = "CCAGAGGUUGUAACGUUGUCUAUAUAUACCCUGUAGAACCGAAUUUGUGUGGUAUCCGUAUAGUCACAGAUUCGAUUCUAGGGGAAUAUAUGGUCGAUGCAAAAACUUCA"
+p= intarna('aptamers.csv', 'Aptamer',target_seq,"Pre_miR10b",True)
+print(p)
+# 'aptamers.csv' the csvfile that contain library of sequences and 'Aptamer' is the column name
+
+```
 
 
 #### Step 5: Macromolecular Docking
