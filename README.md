@@ -116,22 +116,20 @@ Leverage the Mol_docking_calc() function provided by the Docking.py script for p
 ```python
 import os
 import pandas as pd
-
-from T_SELEX import Docking
-from Docking import Mol_docking_calc
+import T_SELEX_program
+from T_SELEX_program import gen_aptamers,fold_and_composition,tertiary_structure,Mol_docking_calc,
+import os
+aptmers_sequences = gen_aptamers(1,33,10)
+print(p)
+df = fold_and_composition(aptamers_sequences)
+tertiary structures = tertiary_structure(df['Aptamer'],df['MFE structure'] )
 
 home_directory = os.path.expanduser( '~' )
 sofware_path = 'software/HDOCKlite-v1.1'
-directory_path = os.path.join(home_directory, sofware_path)
-
-df1 = pd.read_csv("Updatedaptamers_with_energy.csv")
-r = '/home/s1800206/hdock_test/targets/hsa_miR_10b_5p.pdb'
-l = '/home/s1800206/hdock_test/ligands/aptamers'
+r = '/home/s1800206/Downloads/6zsl.pdb'
+l = '/home/s1800206/hdock_test'
 s = '/home/s1800206/software/HDOCKlite-v1.1'
-
-
-p = Mol_docking_calc(data_frame= df1,MFE_column ='mfe_energiesRNAfold',receptor_name= "hsa_miR_10b_5p",receptor=r,ligands_directory=l,directory_path= s,Ap_folded=True)
-print(p)
+virtual_screening = Mol_docking_calc(data_frame= a,MFE_column ='Minimum free Energy',receptor_name= "6zsl",receptor=r,ligands_directory=l,directory_path= s,Ap_folded=True)
 
 ```
 #### Step 6: Docking Results Analysis
