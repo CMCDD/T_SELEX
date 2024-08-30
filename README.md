@@ -25,7 +25,7 @@ python install_dependencies.py
 ```
 
 ### Hdock extension
-first dowload the stand alone software from the HDock webserver:http://hdock.phys.hust.edu.cn/
+first dowload the stand alone software from the HDock webserver:http: **//hdock.phys.hust.edu.cn/
 
 
 ## Usage
