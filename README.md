@@ -55,8 +55,10 @@ RNA = gen_aptamers(seed =1, length="randomize", aptamers_num =100)
 Use the aptamerbase() function from to dowload the aptamer sequences dataset.
 
 ```python
+
 # for downloading DNA aptamers
 dna_aptamers = aptamerbase("DNA")
+
 # for downloading DNA aptamers
 dna_aptamers = aptamerbase("RNA")
 ```
@@ -107,12 +109,14 @@ p= intarna('aptamers.csv', 'Aptamer',target_seq,"Pre_miR10b",True)
 print(p)
 # 'aptamers.csv' the csvfile that contain library of sequences and 'Aptamer' is the column name
 
+
+###### Arguments
 ```
-- 'aptamers.csv' is the CSV file containing a library of RNA sequences.
-- 'Aptamer' is the column name in the CSV file that contains the sequences to be analyzed.
-- 'target_seq' is the RNA sequence for which interactions are predicted.
-- 'Pre_miR10b' specifies the interaction model or condition.
-- 'True' indicates additional settings or options for the prediction.
+- `aptamers.csv` is the CSV file containing a library of RNA sequences.
+- `Aptamer` is the column name in the CSV file that contains the sequences to be analyzed.
+- `target_seq` is the RNA sequence for which interactions are predicted.
+- `Pre_miR10b` specifies the interaction model or condition.
+- `True` indicates additional settings or options for the prediction analysis and the saving of the results.
 
 #### Step 5: Macromolecular Docking
 
