@@ -21,11 +21,12 @@ T_SELEX is a Python package designed for generating RNA aptamer libraries and pr
 To install the required internal dependencies, execute the following command in the terminal from the home directory:
 
 ```bash
-pip install -r requirements.txt
+python install_dependencies.py
 ```
-/
-### External Dependencies
-Detailed instructions for installing the external dependencies can be found in the external_dependencies_installation_guide.txt located in the home directory
+
+### Hdock extension
+first dowload the stand alone software from the HDock webserver:http://hdock.phys.hust.edu.cn/
+
 
 ## Usage
 The T_SELEX package is structured to follow a step-by-step workflow:
