@@ -29,15 +29,20 @@ python install_dependencies.py
 - Secondly create the directory called sofware and paste the HDOCKlite-v1.1 directory there.
 
 
-## Usage
+## Usage(API)
 The T_SELEX package is structured to follow a step-by-step workflow:
 
 #### Step 1: RNA Aptamer Library Generation
 ##### Option 1: Generate Random Sequences
-Use the gen_aptamers() function from the secondary.py script. This function generates random sequences using the Base Randomization Algorithm (BRA).
+Use the gen_aptamers() function from the to generate RNA sequences. This function generates random sequences using the Base Randomization Algorithm (BRA) which put the bases of the sequnces randomly.
 ```python
-def gen_aptamers(seed, length, aptamers_num):
-    # Function implementation
+
+import pandas as pd
+import T_SELEX_program
+from T_SELEX_program import gen_aptamers,fold_and_composition,tertiary_structure,Mol_docking_calc,
+# This will generate 100 RNA sequnces with the random lengths ranging from 16  to 60
+RNA = gen_aptamers(seed =1, length="randomize", aptamers_num =100)
+
 ```
 
 ###### Arguments
@@ -59,10 +64,32 @@ dna_aptamers = aptamerbase("RNA")
 #### Step 2: RNA Folding and Secondary Structures
 
 Employ the fold_and_composition() function to accurately predict the Minimum Free Energy (MFE) secondary structures. This step involves folding the RNA sequences generated in Step 1 and predicting their secondary structures based on the calculated energy.
+```python
+import pandas as pd
+import T_SELEX_program
+from T_SELEX_program import gen_aptamers,fold_and_composition,tertiary_structure,Mol_docking_calc,
+# This will generate 100 RNA sequnces with the random lengths ranging from 16  to 60
+RNA = gen_aptamers(seed =1, length="randomize", aptamers_num =100)
+print(RNA)
+df = fold_and_composition(RNA)
 
+```
 #### Step 3: Tertiary Structures Prediction
 
 Utilize the tertiary_structure() function to forecast the 3D structures of the sequences. In this step, the secondary structures obtained in Step 2 are used as input to predict the tertiary structures of RNA molecules.
+
+```python
+import pandas as pd
+import T_SELEX_program
+from T_SELEX_program import gen_aptamers,fold_and_composition,tertiary_structure,Mol_docking_calc,
+# This will generate 100 RNA sequnces with the random lengths ranging from 16  to 60
+RNA = gen_aptamers(seed =1, length="randomize", aptamers_num =100)
+print(RNA)
+df = fold_and_composition(RNA)
+#Generating tertiary strucures
+tertiary structures = tertiary_structure(df["Aptamer"],df["MFE structure"] )
+
+```
 
 #### Step 4: RNA-RNA Interactions Prediction
 
