@@ -116,7 +116,7 @@ print(p)
 - `aptamers.csv` is the CSV file containing a library of RNA sequences.
 - `Aptamer` is the column name in the CSV file that contains the sequences to be analyzed.
 - `target_seq` is the RNA sequence for which interactions are predicted.
-- `Pre_miR10b` specifies the interaction model or condition.
+- `Pre_miR10b` specifies the name of the target sequence.
 - `True` indicates additional settings or options for the prediction analysis and the saving of the results.
 
 #### Step 5: Macromolecular Docking
