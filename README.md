@@ -26,7 +26,7 @@ python install_dependencies.py
 
 ### Hdock extension
 - First dowload the stand alone software from the HDock webserver: http://hdock.phys.hust.edu.cn/ 
-- secondly creat the directory called sofware and paste the HDOC
+- Secondly create the directory called sofware and paste the HDOCKlite-v1.1 directory there.
 
 
 ## Usage
@@ -47,11 +47,13 @@ def gen_aptamers(seed, length, aptamers_num):
 - `aptamers_num`: Number of sequences to generate.
 
 ##### Option 2: Download RNA Sequences from Aptamerbase
-Use the aptamerbase() function from the secondary.py script.
+Use the aptamerbase() function from to dowload the aptamer sequences dataset.
 
 ```python
-def aptamerbase(n_type):
-    # Function implementation
+# for downloading DNA aptamers
+dna_aptamers = aptamerbase("DNA")
+# for downloading DNA aptamers
+dna_aptamers = aptamerbase("RNA")
 ```
 
 #### Step 2: RNA Folding and Secondary Structures
