@@ -141,6 +141,17 @@ s = '/home/s1800206/software/HDOCKlite-v1.1'
 virtual_screening = Mol_docking_calc(data_frame= a,MFE_column ='Minimum free Energy',receptor_name= "6zsl",receptor=r,ligands_directory=l,directory_path= s,Ap_folded=True)
 
 ```
+
+###### Arguments
+- `data_frame`: DataFrame containing aptamer sequences and their MFE structures.
+- `MFE_column`: Column name in the DataFrame that holds the MFE values.
+- `receptor_name`: Name of the receptor file.
+- `receptor`: Path to the receptor PDB file.
+- `ligands_directory`: Directory containing ligand files.
+- `directory_path`: Path to the HDOCK software directory.
+- `Ap_folded`: Boolean indicating wheater to take folded or non folded aptamers.
+
+
 #### Step 6: Docking Results Analysis
 
 Conduct a comprehensive analysis of docking results utilizing the generated CSV file. This encompasses regression analysis, Z-score calculations, and data visualization through graphical plots.
