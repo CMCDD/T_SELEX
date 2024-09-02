@@ -1,6 +1,6 @@
 # T_SELEX
 
-Rx308p1
+
 ![alt_text](pictures/t_selex_log.png)
 
 ## Introduction
