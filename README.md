@@ -2,7 +2,7 @@
 
 
 <div style="text-align: center;">
-    <img src="pictures/t_selex_log.png" alt="T_SELEX" style="width: 80%; height: auto;">
+    <img src="pictures/logo.png" alt="T_SELEX" style="width: 80%; height: auto;">
 </div>
 
 
