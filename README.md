@@ -62,6 +62,27 @@ python install_dependencies.py
 - Secondly create the directory called sofware and paste the HDOCKlite-v1.1 directory there.
 
 
+
+
+## Usage(Program)
+To run the T_SELEX as program program with the given parameters, you can use the following command:
+
+
+```bash
+t_selex_program.py --gen_aptamers_seed 1 --gen_aptamers_length 33 --gen_aptamers_width 10 --receptor_file /home/s1800206/Downloads/6zsl.pdb --receptor_name "6zsl" --ligands_directory /home/s1800206/hdock_test --software_path software/HDOCKlite-v1.1
+
+```
+
+###### Arguments
+- `--gen_aptamers_seed` : Sets the seed for generating aptamers to ensure reproducibility.
+- `--gen_aptamers_length` : Specifies the length of the aptamers to be generated.
+- `--gen_aptamers_number` : Defines the numbers of the aptamers.
+- `--receptor_file` : Provides the path to the receptor file, which in this case is the PDB file 6zsl.pdb.
+- `--receptor_name` : Provides assist with managing the output files.
+- `--ligands_directory` : Points to the directory where the ligand pdb files are located.
+- `--software_path' : Indicates the path to the docking software, in this case, HDOCKlite-v1.1.
+
+
 ## Usage(API)
 The T_SELEX package is structured to follow a step-by-step workflow:
 
@@ -72,7 +93,8 @@ Use the gen_aptamers() function from the to generate RNA sequences. This functio
 
 import pandas as pd
 import T_SELEX_program
-from T_SELEX_program import gen_aptamers,fold_and_composition,tertiary_structure,Mol_docking_calc,
+from T_SELEX_program import gen_aptamers,fold_and_composition,tertiary_structure,Mol_docking_calc
+
 # This will generate 100 RNA sequnces with the random lengths ranging from 16  to 60
 RNA = gen_aptamers(seed =1, length="randomize", aptamers_num =100)
 
@@ -94,6 +116,7 @@ dna_aptamers = aptamerbase("DNA")
 
 # for downloading DNA aptamers
 dna_aptamers = aptamerbase("RNA")
+
 ```
 
 #### Step 2: RNA Folding and Secondary Structures
@@ -103,6 +126,7 @@ Employ the fold_and_composition() function to accurately predict the Minimum Fre
 import pandas as pd
 import T_SELEX_program
 from T_SELEX_program import gen_aptamers,fold_and_composition,tertiary_structure,Mol_docking_calc
+
 # This will generate 100 RNA sequnces with the random lengths ranging from 16  to 60
 RNA = gen_aptamers(seed =1, length="randomize", aptamers_num =100)
 print(RNA)
