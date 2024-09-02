@@ -2,7 +2,7 @@
 
 <!-- <p align="center">
 
-  <img src="T_SELEX/pictures/t_selex_logo.png" alt="haddock3-logo" style="vertical-align: middle;">
+  <img src="https://github.com/CMCDD/T_SELEX/tree/main/pictures/t_selex_logo.png" alt="haddock3-logo" style="vertical-align: middle;">
 </p>
 <src > -->
 
