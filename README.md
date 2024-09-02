@@ -20,6 +20,32 @@ T_SELEX is a Python package designed for generating RNA aptamer libraries and pr
 
 To install the required internal dependencies, execute the following command in the terminal from the home directory:
 
+Step 1: Create a Conda environment named t_selex
+
+```bash
+conda create --name t_selex python=3.9
+```
+Step 2: Activate the Conda environment
+
+```bash
+conda activate t_selex
+```
+Step 3: Navigate to the site-packages directory
+
+
+```bash
+cd anaconda3/envs/t_selex/lib/python3.9/site-packages/
+```
+
+Step 4: Clone the software repository from GitHub
+```bash
+git clone https://github.com/CMCDD/T_SELEX.git
+```
+Step 5: Navigate into the cloned repository directory
+```bash
+cd T_SELEX
+```
+Step 6: Run the Python script to install dependencies
 ```bash
 python install_dependencies.py
 ```
