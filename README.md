@@ -1,7 +1,10 @@
 # T_SELEX
 
 
-![alt_text](pictures/t_selex_log.png)
+<div style="text-align: center;">
+    <img src="pictures/t_selex_log.png" alt="T_SELEX" style="width: 80%; height: auto;">
+</div>
+
 
 ## Introduction
 T_SELEX is a Python package designed for generating RNA aptamer libraries and predicting their secondary and tertiary structures, RNA-RNA interactions, and performing macromolecular docking. The package is primarily designed to run on a Linux machine and offers a structured workflow for high-throughput RNA aptamer analysis. 
