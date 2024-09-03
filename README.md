@@ -278,6 +278,46 @@ reslp3 = PDCA(df1=p2,label1="4l9k")
 
 ```bash
 
+
+
+
+
+
+['UACCAUCUGGCCCGGGAGUAUGCUCAUAGUAAU', 'UCUCAAUUCAGGGGGGUCUCGGGUGUCUGGGAU', 'CCUGGUCGUAAUAACUCCUUCCGCGCCAGUGCU', 'AUAACGUCUAAGCCUCCAAAUACCCAGCGGCCU', 'ACACAUCAUAAGACUGGAUGAUGCCUCACCUUC', 'ACAAGAAACUAGGACUGCGCCCUAUACGGGAAC', 'GCGAGCACCGGAUUCGCAAUUGGGAUUUUGUCU', 'GUAUCGUACGACGAUAGGCACUGAUUUGUGUUC', 'CGCUAUCACAGCCCGUUUCCUAACAUCGUCCUC', 'CUGAUAAGCGAAUAUGUUAUUUCCGAAGAAAGG']
+csv file name data.csv is created and save with all data
+   Number  ... Minimum free Energy
+0       1  ...                -1.7
+1       2  ...                -8.2
+2       3  ...                -6.5
+3       4  ...                -2.2
+4       5  ...                -4.9
+5       6  ...                -3.6
+6       7  ...                -5.1
+7       8  ...                -8.0
+8       9  ...                -1.2
+9      10  ...                -0.1
+
+[10 rows x 8 columns]
+Processing aptamer 1 with secondary structure method ..((....)).....(((....)))........
+Navigated to RNAcomposer.
+Submitted aptamer 1 for folding.
+Results for aptamer 1 saved to output_aptamer1.txt.
+PDB file for aptamer 1 downloaded.
+Processing aptamer 2 with secondary structure method ((((......)))).(((((((....)))))))
+Navigated to RNAcomposer.
+Submitted aptamer 2 for folding.
+Results for aptamer 2 saved to output_aptamer2.txt.
+PDB file for aptamer 2 downloaded.
+Processing aptamer 3 with secondary structure method .((((.(((.............)))))))....
+Navigated to RNAcomposer.
+Submitted aptamer 3 for folding.
+Results for aptamer 3 saved to output_aptamer3.txt.
+...........
+......
+....
+...
+..
+.
 ####################################################
 #                                                  #
 #       Please reference T-SELEX program           #
