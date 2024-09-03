@@ -276,12 +276,6 @@ reslp3 = PDCA(df1=p2,label1="4l9k")
 
 
 
-
- ####################################################
- #                                                  #
- #       Please cite T-SELEX program                #
- #                                                  #
- ####################################################
       ligand  Energy   RMSD  Fitness quality  Confidence Score (%)
 0  aptamerd1 -352.40  66.02          -263.69                98.284
 1  aptamerd7 -341.53  51.74          -245.67                97.876
