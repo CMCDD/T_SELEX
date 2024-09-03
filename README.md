@@ -272,9 +272,11 @@ reslp2 = PDCA(df1=p1,label1="1bm0")
 reslp3 = PDCA(df1=p2,label1="4l9k")
 
 ```
+
+
 ### results
 
-
+```bash
 
       ligand  Energy   RMSD  Fitness quality  Confidence Score (%)
 0  aptamerd1 -352.40  66.02          -263.69                98.284
@@ -287,3 +289,4 @@ reslp3 = PDCA(df1=p2,label1="4l9k")
 7  aptamerd4 -297.31  80.35          -251.79                95.008
 8  aptamerd5 -285.65  75.85          -234.41                93.779
 
+```
