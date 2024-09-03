@@ -212,3 +212,64 @@ virtual_screening = Mol_docking_calc(data_frame= a,MFE_column ='Minimum free Ene
 #### Step 6: Docking Results Analysis
 
 Conduct a comprehensive analysis of docking results utilizing the generated CSV file. This encompasses regression analysis, Z-score calculations, and data visualization through graphical plots.
+
+
+
+
+## Example
+
+
+
+```python
+import pandas as pd
+import T_SELEX_program
+from T_SELEX_program import gen_aptamers, fold_and_composition, tertiary_structure, Mol_docking_calc, SSC, loops, mass, aptamerbase
+import os
+p = gen_aptamers(1, 33, 10)
+print(p)
+a = fold_and_composition(p)
+print(a)
+k = tertiary_structure(a['Aptamer'],a['MFE structure'] )
+
+
+home_directory = os.path.expanduser('~')
+sofware_path = 'software/HDOCKlite-v1.1'
+directory_path = os.path.join(home_directory, sofware_path)
+directory_path
+
+os.chdir(home_directory)
+df1 = pd.read_csv("Updatedaptamers_with_energy.csv")
+r = '/home/s1800206/Downloads/1ao6_clean.pdb'
+r1 = '/home/s1800206/Downloads/1bm0_clean.pdb'
+r2 = '/home/s1800206/Downloads/4l9k_clean.pdb'
+l = '/home/s1800206/Downloads'
+s = '/home/s1800206/software/HDOCKlite-v1.1'
+
+
+p = Mol_docking_calc(data_frame=a, MFE_column='Minimum free Energy', receptor_name="1ao6",
+                     receptor=r, ligands_directory=l, directory_path=s, Ap_folded=True)
+
+p1 = Mol_docking_calc(data_frame=a, MFE_column='Minimum free Energy', receptor_name="1bm0",
+                     receptor=r1, ligands_directory=l, directory_path=s, Ap_folded=True)
+
+p2 = p = Mol_docking_calc(data_frame=a, MFE_column='Minimum free Energy', receptor_name="4l9k",
+                     receptor=r2, ligands_directory=l, directory_path=s, Ap_folded=True)
+
+
+#post dockong analysis
+from T_SELEX_program import DMBA,BMA,PDCA
+
+
+res = DMBA(df1=p,label1="1ao6", df2=p1,label2="1bm0",df3=p2,label3 ="4l9k")
+resl1 = BMA(df1=p,label1="1ao6")
+resl2 = BMA(df1=p1,label1="1bm0")
+resl3 = BMA(df1=p2,label1="4l9k")
+
+
+
+reslp1 = PDCA(df1=p,label1="1ao6")
+reslp2 = PDCA(df1=p1,label1="1bm0")
+reslp3 = PDCA(df1=p2,label1="4l9k")
+
+```
+
