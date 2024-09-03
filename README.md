@@ -218,7 +218,11 @@ Conduct a comprehensive analysis of docking results utilizing the generated CSV 
 
 ## Example
 
+This script showcases the use of the T_SELEX_program module for aptamer design and analysis, specifically focusing on interactions with human bovine serum proteins. It begins by generating a set of aptamers with specified parameters, such as the number of aptamers and their length. Following this, the script predicts the secondary structures and folding compositions of these aptamers and calculates their tertiary structures based on the predicted MFE (Minimum Free Energy) structures.
 
+The script then sets up the necessary file paths for the receptor proteins—human bovine serum proteins—and ligand directories required for molecular docking calculations. It performs docking simulations to evaluate how well the aptamers bind to different human bovine serum receptors, saving the results in a designated directory.
+
+After completing the docking calculations, the script conducts post-docking analysis using various functions from the T_SELEX_program module. This includes comparing the docking results across multiple receptors to assess the binding interactions and evaluating the quality of these interactions through additional analytical methods. Overall, the workflow integrates aptamer design, docking simulations, and comprehensive analysis to study aptamer-receptor interactions with human bovine serum proteins.
 
 ```python
 import pandas as pd
