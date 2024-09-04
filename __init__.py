@@ -1,9 +1,3 @@
-
-
-
-
-
-
 import T_SELEX_program.secondary
 from T_SELEX_program import secondary
 from .secondary import gen_aptamers
