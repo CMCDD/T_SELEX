@@ -405,4 +405,6 @@ Results for aptamer 3 saved to output_aptamer3.txt.
 
 
 ```
+For example, the aptamer `AptamerD1` is shown to bind effectively to the protein 1AO6, as illustrated in the figure below.
 
+![AptamerD1 Binding to 1AO6](pictures/1ao6_aptamed1_model_1.png)
