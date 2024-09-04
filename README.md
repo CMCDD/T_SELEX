@@ -405,6 +405,23 @@ Results for aptamer 3 saved to output_aptamer3.txt.
 
 
 ```
-For example, the aptamer `AptamerD1` is shown to bind effectively to the protein 1AO6, as illustrated in the figure below.
+For example, the aptamer AptamerD1 is shown to bind effectively to the protein 1AO6, as illustrated in the figure below.
 
 ![AptamerD1 Binding to 1AO6](pictures/1ao6_aptamed1_model_1.png)
+
+### Binding Models
+
+The following figure shows four different models of the aptamer binding to the protein surface:
+
+- **Model 1**: Represented in yellow.
+- **Model 2**: Represented in purple.
+- **Model 3**: Represented in blue.
+- **Model 4**: Represented in black.
+
+The protein surface is shown in the figure to provide context for the binding interactions.
+
+![Binding Models](pictures/1ao6_aptamed1_model_1to5.png)
+
+*Figure: Binding models of the aptamer to the protein surface, with each model highlighted in a different color.*
+
+
