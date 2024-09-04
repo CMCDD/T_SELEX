@@ -405,10 +405,22 @@ Results for aptamer 3 saved to output_aptamer3.txt.
 
 
 ```
-For example, the aptamer AptamerD1 is shown to bind effectively to the protein 1AO6, as illustrated in the figure below.
+
+### Tertiary Structures of Aptamers
+
+The following figure illustrates the tertiary structures of the aptamers:
+
+![Tertiary Structures](path/to/your/tertiary_structures_image.png)
+
+*Figure: Tertiary structures of the aptamers, showing their three-dimensional conformations.*
+
+### Best docked complex
+
+For example, the aptamer Aptamerd1 is shown to bind effectively to the protein 1AO6, as illustrated in the figure below.
 
 ![AptamerD1 Binding to 1AO6](pictures/1ao6_aptamed1_model_1.png)
 
+*Figure: TDocked complex of the best aptamer (aptamerd10) against Human Bovine Serum (1AO6)*
 ### Binding Models
 
 The following figure shows four different models of the aptamer binding to the protein surface:
