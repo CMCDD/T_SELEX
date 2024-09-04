@@ -12,7 +12,7 @@ T_SELEX is a Python package designed for generating RNA aptamer libraries and pr
 ## Prerequisites
 
 - **Operating System:** Linux
-- **Python Version:** Python 3.x
+- **Python Version:** Python 3.xhttps://github.com/CMCDD/T_SELEX/edit/main/README.md
 - **Required Python Packages:** `pandas`, `matplotlib`, `biopython`
 - **External Dependencies:**
   - Selenium
@@ -410,7 +410,7 @@ Results for aptamer 3 saved to output_aptamer3.txt.
 
 The following figure illustrates the tertiary structures of the aptamers:
 
-![Tertiary Structures](path/to/your/tertiary_structures_image.png)
+![Tertiary Structures](pictures/tertiary_structures.png)
 
 *Figure: Tertiary structures of the aptamers, showing their three-dimensional conformations.*
 
