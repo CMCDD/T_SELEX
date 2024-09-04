@@ -288,7 +288,16 @@ reslp3 = PDCA(df1=p2,label1="4l9k")
 ```
 
 
-### results
+### Results
+
+The results from the T_SELEX program will be displayed directly in the terminal. They include:
+
+- *Sequences Generation:* The sequences produced by the program.
+- *Secondary Structure Predictions:* Predicted secondary structures for each sequence.
+- *Tertiary Structure Predictions:* Predicted tertiary structures of the sequences.
+- *Virtual Screening Results:* Screening outcomes for aptamers against the human and bovine serum proteins (1AO6, 1BM0, 4L9K).
+
+You can view and analyze these results in the terminal output upon running the program.
 
 ```bash
 
@@ -396,3 +405,4 @@ Results for aptamer 3 saved to output_aptamer3.txt.
 
 
 ```
+
