@@ -56,6 +56,20 @@ Step 6: Run the Python script to install dependencies
 ```bash
 python install_dependencies.py
 ```
+Step 7: Make t_selex_program.py the Script Executable
+```bash
+chmod +x t_selex_program.py
+```
+Step 8: Copy the Script to a bin directory  to make it a command
+```bash
+mv t_selex_program.py /usr/local/bin/t_selex_program
+```
+
+Step 9: Check the if is properly installed by running this command
+```bash
+t_selex_program
+```
+
 
 ### Hdock extension
 - First dowload the stand alone software from the [HDock webserver](http://hdock.phys.hust.edu.cn/) 
