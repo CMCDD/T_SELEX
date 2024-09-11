@@ -14,7 +14,8 @@ def install_conda_packages():
         "conda install -y bioconda::viennarna",
         "conda install -y bioconda::intarna",
         "conda install -y conda-forge::biopython",
-        "conda install -y conda-forge::scipy"
+        "conda install -y conda-forge::scipy",
+        "conda install numpy"
     ]
     
     for command in conda_commands:
