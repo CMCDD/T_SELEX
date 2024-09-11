@@ -169,24 +169,42 @@ def fold_and_composition(aptamers_list):
 
 
 def tertiary_structure(aptamer_list, secondary_structure):
-   import os
-   from selenium import webdriver
-   from selenium.webdriver.chrome.service import Service
-   from selenium.webdriver.chrome.options import Options
-   from selenium.webdriver.common.by import By
-   from selenium.webdriver.common.keys import Keys
-   from selenium.webdriver.support.ui import WebDriverWait
-   from selenium.webdriver.support import expected_conditions as EC
-   import time
-   import pandas as pd
-   import os
+    import os
+    from selenium import webdriver
+    from selenium.webdriver.chrome.service import Service
+    from selenium.webdriver.chrome.options import Options
+    from selenium.webdriver.common.by import By
+    from selenium.webdriver.common.keys import Keys
+    from selenium.webdriver.support.ui import WebDriverWait
+    from selenium.webdriver.support import expected_conditions as EC
+    import pandas as pd
+
+    # Set up Chrome options
     chrome_options = Options()
-    chrome_options.add_argument("--headless")  
+    chrome_options.add_argument("--headless")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
 
-    # Set up the driver
-    driver = webdriver.Chrome(options=chrome_options)
+    # Initialize WebDriver
+    try:
+        driver = webdriver.Chrome(options=chrome_options)
+        print("WebDriver initialized successfully.")
+    except Exception as e:
+        print(f"Failed to initialize WebDriver: {e}")
+        return "Failed to initialize WebDriver."
+
+    def download_pdb_file(name, sec):
+        pdb_link_text = "aptamerd" if sec == "IPknot" else "aptamer"
+        try:
+            pdb = WebDriverWait(driver, 60).until(
+                EC.presence_of_element_located((By.PARTIAL_LINK_TEXT, pdb_link_text))
+            )
+            pdb.click()
+            print(f"PDB file for aptamer {name} downloaded.")
+        except Exception as e:
+            print(f"Error downloading PDB file for aptamer {name}: {e}")
+            return False
+        return True
 
     def process_aptamer(name, aptamer, sec):
         try:
@@ -196,11 +214,15 @@ def tertiary_structure(aptamer_list, secondary_structure):
             print("Navigated to RNAcomposer.")
 
             # Wait for the page to load
-            #time.sleep(20)
+            WebDriverWait(driver, 60).until(
+                EC.presence_of_element_located((By.NAME, "content"))
+            )
+            print("Page loaded successfully.")
 
+            # Fill in the form
             search_box = driver.find_element(By.NAME, "content")
             search_box.clear()
-            search_box.send_keys(f'>aptamerd{name}')
+            search_box.send_keys(f'>aptamerd{name}' if isinstance(secondary_structure, list) else f'>aptamer{name}')
             search_box.send_keys(Keys.RETURN)
             search_box.send_keys(aptamer)
             search_box.send_keys(Keys.RETURN)
@@ -211,9 +233,10 @@ def tertiary_structure(aptamer_list, secondary_structure):
             compose.click()
             print(f"Submitted aptamer {name} for folding.")
 
-            # Wait for the process to complete
-            #time.sleep(25)
-
+            # Wait for results to be available
+            WebDriverWait(driver, 60).until(
+                EC.presence_of_element_located((By.CLASS_NAME, "task-log"))
+            )
             results = driver.find_elements(By.CLASS_NAME, "task-log")
             output_file_name = f"output_aptamer{name}.txt"
             with open(output_file_name, "w") as file:
@@ -221,12 +244,12 @@ def tertiary_structure(aptamer_list, secondary_structure):
                     file.write(result.text + "\n")
             print(f"Results for aptamer {name} saved to {output_file_name}.")
 
-            pdb_link_text = "aptamerd" if sec == "IPknot" else "aptamer"
-            pdb = WebDriverWait(driver, 200).until(
-                EC.presence_of_element_located((By.PARTIAL_LINK_TEXT, pdb_link_text))
-            )
-            pdb.click()
-            print(f"PDB file for aptamer {name} downloaded.")
+            # Attempt to download the PDB file
+            if not download_pdb_file(name, sec):
+                # Record failed aptamer
+                with open('last_failed_aptamer.txt', 'w') as last_failed_file:
+                    last_failed_file.write(f"{name}\n")
+                return
 
             # Record downloaded aptamer
             with open('downloaded_aptamers.txt', 'a') as downloaded_file:
@@ -289,8 +312,11 @@ def tertiary_structure(aptamer_list, secondary_structure):
     resume_processing(start_index)
 
     # Close the driver
-    driver.quit()
-    print("Driver closed.")
+    try:
+        driver.quit()
+        print("Driver closed.")
+    except Exception as e:
+        print(f"Error closing WebDriver: {e}")
 
     finished_text = "Please note that the calculations are done..."
     return finished_text
