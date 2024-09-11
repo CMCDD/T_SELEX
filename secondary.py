@@ -1,3 +1,21 @@
+import time
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import pandas as pd
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service 
+service = Service() 
+import selenium
+print(selenium.__version__)
+# this is important
+options = webdriver.ChromeOptions() 
+options.add_argument("--headless=new")
+driver = webdriver.Chrome(service=service, options=options)
 import numpy as np
 from fastcluster import linkage
 from scipy.spatial.distance import pdist
@@ -6,7 +24,6 @@ import matplotlib.pyplot as plt
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-import pandas as pd
 import math
 import time
 import random
@@ -151,61 +168,18 @@ def fold_and_composition(aptamers_list):
   return df
 
 
-
-import pandas as pd
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
-
-import time
-
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service 
-service = Service() 
-import selenium
-print(selenium.__version__)
-# this is important
-options = webdriver.ChromeOptions() 
-options.add_argument("--headless=new")
-driver = webdriver.Chrome(service=service, options=options)
-
-
-
-
-
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-import time
-import pandas as pd
-import os
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-import time
-import pandas as pd
-import os
-
 def tertiary_structure(aptamer_list, secondary_structure):
    import os
-	from selenium import webdriver
-	from selenium.webdriver.chrome.service import Service
-	from selenium.webdriver.chrome.options import Options
-	from selenium.webdriver.common.by import By
-	from selenium.webdriver.common.keys import Keys
-	from selenium.webdriver.support.ui import WebDriverWait
-	from selenium.webdriver.support import expected_conditions as EC
-	import time
-	import pandas as pd
-	import os
+   from selenium import webdriver
+   from selenium.webdriver.chrome.service import Service
+   from selenium.webdriver.chrome.options import Options
+   from selenium.webdriver.common.by import By
+   from selenium.webdriver.common.keys import Keys
+   from selenium.webdriver.support.ui import WebDriverWait
+   from selenium.webdriver.support import expected_conditions as EC
+   import time
+   import pandas as pd
+   import os
     chrome_options = Options()
     chrome_options.add_argument("--headless")  
     chrome_options.add_argument("--no-sandbox")
