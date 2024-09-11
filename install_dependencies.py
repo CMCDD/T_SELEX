@@ -29,7 +29,7 @@ def install_pip_packages():
         "pip install numpy",
         "pip install matplotlib",
         "pip install seqfold",
-        "pip install seaborn"
+        "pip install seaborn",
         "pip install viennarna"
     ]
     
