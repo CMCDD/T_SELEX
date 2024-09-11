@@ -195,7 +195,17 @@ import pandas as pd
 import os
 
 def tertiary_structure(aptamer_list, secondary_structure):
-   
+   import os
+	from selenium import webdriver
+	from selenium.webdriver.chrome.service import Service
+	from selenium.webdriver.chrome.options import Options
+	from selenium.webdriver.common.by import By
+	from selenium.webdriver.common.keys import Keys
+	from selenium.webdriver.support.ui import WebDriverWait
+	from selenium.webdriver.support import expected_conditions as EC
+	import time
+	import pandas as pd
+	import os
     chrome_options = Options()
     chrome_options.add_argument("--headless")  
     chrome_options.add_argument("--no-sandbox")
