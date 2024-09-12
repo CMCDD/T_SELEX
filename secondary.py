@@ -160,7 +160,6 @@ def fold_and_composition(aptamers_list):
   
   return df
 
-
 def tertiary_structure(aptamer_list, secondary_structure):
     import os
     from selenium import webdriver
@@ -172,11 +171,13 @@ def tertiary_structure(aptamer_list, secondary_structure):
     from selenium.webdriver.support import expected_conditions as EC
     import pandas as pd
 
+    # Set up Chrome options
     chrome_options = Options()
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
 
+    # Initialize WebDriver
     try:
         driver = webdriver.Chrome(options=chrome_options)
         print("WebDriver initialized successfully.")
@@ -201,22 +202,10 @@ def tertiary_structure(aptamer_list, secondary_structure):
         try:
             print(f"Processing aptamer {name} with secondary structure method {sec}")
 
-            driver.get("https://rnacomposer.for pdb_file in *.pdb; do
-    base_name=$(basename "$pdb_file" .pdb)
-    chrg_file="${base_name}.CHRG"
-    
-    # Check if the corresponding .CHRG file exists
-    if [ -f "$chrg_file" ]; then
-        echo "Running xtb calculation for ${pdb_file} with charge from ${chrg_file}"
-        xtb "$pdb_file" --chrg $(cat "$chrg_file")
-    else
-        echo "Charge file ${chrg_file} not found for ${pdb_file}"
-    fi
-done
-cs.put.poznan.pl/")
+            driver.get("https://rnacomposer.cs.put.poznan.pl/")
             print("Navigated to RNAcomposer.")
 
-           
+            # Wait for the page to load
             WebDriverWait(driver, 60).until(
                 EC.presence_of_element_located((By.NAME, "content"))
             )
@@ -235,8 +224,9 @@ cs.put.poznan.pl/")
             compose = driver.find_element(By.NAME, "send")
             compose.click()
             print(f"Submitted aptamer {name} for folding.")
-		
-            WebDriverWait(driver, 200).until(
+
+            # Wait for results to be available
+            WebDriverWait(driver, 60).until(
                 EC.presence_of_element_located((By.CLASS_NAME, "task-log"))
             )
             results = driver.find_elements(By.CLASS_NAME, "task-log")
@@ -246,24 +236,24 @@ cs.put.poznan.pl/")
                     file.write(result.text + "\n")
             print(f"Results for aptamer {name} saved to {output_file_name}.")
 
-      
+            # Attempt to download the PDB file
             if not download_pdb_file(name, sec):
-         
+                # Record failed aptamer
                 with open('last_failed_aptamer.txt', 'w') as last_failed_file:
                     last_failed_file.write(f"{name}\n")
                 return
 
-           
+            # Record downloaded aptamer
             with open('downloaded_aptamers.txt', 'a') as downloaded_file:
                 downloaded_file.write(f"{name}\n")
 
-            
+            # Record last successfully processed aptamer
             with open('last_processed_aptamer.txt', 'w') as last_processed_file:
                 last_processed_file.write(f"{name}\n")
 
         except Exception as e:
             print(f"An error occurred while processing aptamer {name}: {e}")
-          
+            # Record the last aptamer attempted but failed
             with open('last_failed_aptamer.txt', 'w') as last_failed_file:
                 last_failed_file.write(f"{name}\n")
 
@@ -302,7 +292,7 @@ cs.put.poznan.pl/")
         else:
             print("Unsupported secondary structure method.")
 
-    
+    # Determine the starting index
     start_index = 1
     if os.path.exists('last_processed_aptamer.txt'):
         with open('last_processed_aptamer.txt', 'r') as last_processed_file:
@@ -313,6 +303,7 @@ cs.put.poznan.pl/")
 
     resume_processing(start_index)
 
+    # Close the driver
     try:
         driver.quit()
         print("Driver closed.")
@@ -321,7 +312,6 @@ cs.put.poznan.pl/")
 
     finished_text = "Please note that the calculations are done..."
     return finished_text
-
 
 
 
