@@ -12,18 +12,11 @@ from selenium.webdriver.chrome.service import Service
 service = Service() 
 import selenium
 print(selenium.__version__)
-# this is important
-options = webdriver.ChromeOptions() 
-options.add_argument("--headless=new")
-driver = webdriver.Chrome(service=service, options=options)
 import numpy as np
 from fastcluster import linkage
 from scipy.spatial.distance import pdist
 from scipy.cluster.hierarchy import dendrogram
 import matplotlib.pyplot as plt
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
 import math
 import time
 import random
