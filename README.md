@@ -50,7 +50,8 @@ git clone https://github.com/CMCDD/T_SELEX.git
 ```
 Step 5: Navigate into the cloned repository directory
 ```bash
-cd T_SELEX
+cp T_SELEX ./T_SELEX_program
+cd T_SELEX_program
 ```
 Step 6: Run the Python script to install dependencies
 ```bash
@@ -62,7 +63,7 @@ chmod +x t_selex_program.py
 ```
 Step 8: Copy the Script to a bin directory  to make it a command
 ```bash
-mv t_selex_program.py /usr/local/bin/t_selex_program
+sudo cp t_selex_program.py /usr/local/bin/t_selex_program
 ```
 
 Step 9: Check the if is properly installed by running this command
