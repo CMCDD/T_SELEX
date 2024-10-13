@@ -14,8 +14,7 @@ def install_conda_packages():
         "conda install -y bioconda::viennarna",
         "conda install -y bioconda::intarna",
         "conda install -y conda-forge::biopython",
-        "conda install -y conda-forge::scipy",
-        "conda install numpy"
+        "conda install -y conda-forge::scipy" #"conda install numpy"
     ]
     
     for command in conda_commands:
@@ -31,7 +30,10 @@ def install_pip_packages():
         "pip install matplotlib",
         "pip install seqfold",
         "pip install seaborn",
-        "pip install viennarna"
+        "pip install viennarna",
+        "pip install numpy==1.26.4",
+        "pip install IPython"
+        
     ]
     
     for command in pip_commands:
