@@ -30,7 +30,7 @@ from Bio.SeqUtils import MeltingTemp as mt
 import pandas as pd
 import subprocess
 
-# RNA aptamer generator function
+
 
 def gen_aptamers(seed,length, aptamers_num):
     
@@ -138,7 +138,7 @@ def fold_and_composition(aptamers_list):
 
       data.append([i+1, aptamer, U, G, A, C, mfe_structure,mfe_energy ])
 
-  # Define the column headers
+
   headers = ['Number', 'Aptamer', 'Us', 'Gs', 'As', 'Cs','MFE structure','Minimum free Energy']
 
   import csv
@@ -171,13 +171,13 @@ def tertiary_structure(aptamer_list, secondary_structure):
     from selenium.webdriver.support import expected_conditions as EC
     import pandas as pd
 
-    # Set up Chrome options
+ 
     chrome_options = Options()
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
 
-    # Initialize WebDriver
+  
     try:
         driver = webdriver.Chrome(options=chrome_options)
         print("WebDriver initialized successfully.")
@@ -205,13 +205,12 @@ def tertiary_structure(aptamer_list, secondary_structure):
             driver.get("https://rnacomposer.cs.put.poznan.pl/")
             print("Navigated to RNAcomposer.")
 
-            # Wait for the page to load
+         
             WebDriverWait(driver, 60).until(
                 EC.presence_of_element_located((By.NAME, "content"))
             )
             print("Page loaded successfully.")
 
-            # Fill in the form
             search_box = driver.find_element(By.NAME, "content")
             search_box.clear()
             search_box.send_keys(f'>aptamerd{name}' if isinstance(secondary_structure, list) else f'>aptamer{name}')
@@ -225,7 +224,6 @@ def tertiary_structure(aptamer_list, secondary_structure):
             compose.click()
             print(f"Submitted aptamer {name} for folding.")
 
-            # Wait for results to be available
             WebDriverWait(driver, 60).until(
                 EC.presence_of_element_located((By.CLASS_NAME, "task-log"))
             )
@@ -236,24 +234,23 @@ def tertiary_structure(aptamer_list, secondary_structure):
                     file.write(result.text + "\n")
             print(f"Results for aptamer {name} saved to {output_file_name}.")
 
-            # Attempt to download the PDB file
             if not download_pdb_file(name, sec):
                 # Record failed aptamer
                 with open('last_failed_aptamer.txt', 'w') as last_failed_file:
                     last_failed_file.write(f"{name}\n")
                 return
 
-            # Record downloaded aptamer
+            
             with open('downloaded_aptamers.txt', 'a') as downloaded_file:
                 downloaded_file.write(f"{name}\n")
 
-            # Record last successfully processed aptamer
+           
             with open('last_processed_aptamer.txt', 'w') as last_processed_file:
                 last_processed_file.write(f"{name}\n")
 
         except Exception as e:
             print(f"An error occurred while processing aptamer {name}: {e}")
-            # Record the last aptamer attempted but failed
+          
             with open('last_failed_aptamer.txt', 'w') as last_failed_file:
                 last_failed_file.write(f"{name}\n")
 
@@ -292,7 +289,7 @@ def tertiary_structure(aptamer_list, secondary_structure):
         else:
             print("Unsupported secondary structure method.")
 
-    # Determine the starting index
+   
     start_index = 1
     if os.path.exists('last_processed_aptamer.txt'):
         with open('last_processed_aptamer.txt', 'r') as last_processed_file:
@@ -303,7 +300,6 @@ def tertiary_structure(aptamer_list, secondary_structure):
 
     resume_processing(start_index)
 
-    # Close the driver
     try:
         driver.quit()
         print("Driver closed.")
@@ -642,7 +638,6 @@ def thermodynamics_properties(rna_sequence):
 
 
 
-# Mass calculation for each sequence
 
 def mass(sequence):
 
