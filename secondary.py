@@ -698,7 +698,7 @@ def aptamerbase(n_type):
   #(http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3308162/)
   # this functiong preprocess the data, by removing empty columns
 
-
+  url_data ='https://raw.githubusercontent.com/micheldumontier/aptamerbase/refs/heads/master/data/aptamerbase_aptamers.csv'
   df = pd.read_csv(url_data)
 
   nan_indices_column_A = df[df['sequence'].isna()].index
